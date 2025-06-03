@@ -813,9 +813,15 @@ export type ImportEnvironmentVariablesRequestBody = z.infer<
   typeof ImportEnvironmentVariablesRequestBody
 >;
 
-export const EnvironmentVariableResponseBody = z.object({
-  success: z.boolean(),
-});
+export const EnvironmentVariableResponseBody = z.union([
+  z.object({
+    success: z.literal(true),
+  }),
+  z.object({
+    error: z.string(),
+    variableErrors: z.array(z.any()).optional(),
+  }),
+]);
 
 export type EnvironmentVariableResponseBody = z.infer<typeof EnvironmentVariableResponseBody>;
 
