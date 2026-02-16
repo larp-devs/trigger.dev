@@ -392,6 +392,18 @@ async function _deployCommand(dir: string, options: DeployCommandOptions) {
           "",
           $spinner
         );
+      } else if ("error" in uploadResult.data) {
+        // Server returned 200 but with error in body
+        await failDeploy(
+          projectClient.client,
+          deployment,
+          {
+            name: "SyncEnvVarsError",
+            message: `Failed to sync ${numberOfEnvVars} env ${vars} with the server: ${uploadResult.data.error}`,
+          },
+          "",
+          $spinner
+        );
       } else {
         $spinner.stop(`Successfully synced ${numberOfEnvVars} env ${vars} with the server`);
       }
