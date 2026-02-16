@@ -1,0 +1,10 @@
+{
+  "success": false,
+  "tasks_total": 6,
+  "tasks_completed": 3,
+  "tasks_failed": 1,
+  "planning_ms": 149893,
+  "execution_ms": 83294,
+  "total_ms": 233906,
+  "error": "Max retries exceeded for task: The `tshy` command is not found in PATH when npm tries to run the build script\n\nPartial progress:\n3 of 6 tasks completed successfully before failure.\nCompleted:\n  - Bash\n  - Bash\n  - Bash\nFailed at: Max retries exceeded for task: The `tshy` command is not found in PATH when npm tries to run the build script"
+}
